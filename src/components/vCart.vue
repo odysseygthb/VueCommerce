@@ -1,8 +1,8 @@
 <template>
   <div id="vcart" class="vcart">
-<!--    <div class="vcart__total">-->
-<!--      <p class="vcart__total_text">Summary: {{ cartTotalCost }}$</p>-->
-<!--    </div>-->
+    <div class="vcart__total" v-if="cartTotalCost > 1">
+      <p class="vcart__total_text">Summary: {{ cartTotalCost }}$</p>
+    </div>
     <div class="vcart__empty" v-if="!CART.length">
       <img :src="require('../assets/img/cartplaceholder.png')" alt="Vue image" class="vcart__empty_image">
       <router-link to="/" class="vcart__empty_link primary__btn">
@@ -14,6 +14,8 @@
       :key="item.article"
       :cart-item-data="item"
       @deleteFromCart="deleteFromCart(index)"
+      @increment="increment(index)"
+      @decrement="decrement(index)"
     />
   </div>
 </template>
@@ -37,11 +39,19 @@
     },
     methods: {
       ...mapActions([
-          'DELETE_FROM_CART'
+          'DELETE_FROM_CART',
+          'INCREMENT_CART_ITEM',
+          'DECREMENT_CART_ITEM'
       ]
       ),
       deleteFromCart (index) {
         this.DELETE_FROM_CART(index)
+      },
+      increment(index) {
+        this.INCREMENT_CART_ITEM(index)
+      },
+      decrement(index) {
+        this.DECREMENT_CART_ITEM(index)
       }
     },
     computed: {
@@ -51,14 +61,20 @@
       cartTotalCost () {
         let result = []
 
-        for (let item of this.CART) {
-          result.push(item.price * item.quantity)
+        if (this.CART.length) {
+          for (let item of this.CART) {
+            result.push(item.price * item.quantity)
+          }
+
+          result = result.reduce(function (sum, el) {
+            return sum + el
+          })
+
+          return result.toFixed(0)
+        } else {
+          return 0
         }
 
-        result = result.reduce(function (sum, el) {
-          return sum + el
-        })
-        return result.toFixed(0)
       }
     }
   }

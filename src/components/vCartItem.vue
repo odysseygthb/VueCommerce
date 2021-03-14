@@ -6,7 +6,12 @@
       <p class="vcartitem__price">{{ cartItemData.price.toFixed(0) }}$</p>
       <p class="vcartitem__article">{{ cartItemData.article }}</p>
       <div class="vcartitem__quantity">
-        <p class="vcartitem__quantity_number">Quantity: {{ cartItemData.quantity }}</p>
+        <p class="vcartitem__quantity_number">
+          Quantity:
+          <span @click="decrementItem">-</span>
+          {{ cartItemData.quantity }}
+          <span @click="incrementItem">+</span>
+        </p>
       </div>
     </div>
     <a href="#"
@@ -17,28 +22,31 @@
 </template>
 
 <script>
-export default {
-  name: "vCartItem",
-  props: {
-    cartItemData: {
-      type: Object,
-      default() {
-        return {}
+  export default {
+    name: "vCartItem",
+    props: {
+      cartItemData: {
+        type: Object,
+        default() {
+          return {}
+        }
       }
-    }
-  },
-  methods: {
-    deleteFromCart () {
-      this.$emit("deleteFromCart")
-    }
-  },
-  computed: {
+    },
+    methods: {
+      deleteFromCart () {
+        this.$emit("deleteFromCart")
+      },
+      decrementItem () {
+        this.$emit('decrement')
+      },
+      incrementItem () {
+        this.$emit('increment')
+      }
+    },
+    computed: {
 
-  },
-  mounted() {
-    this.$set(this.cartItemData, 'quantity', 1)
+    }
   }
-}
 </script>
 
 <style scoped>
@@ -73,5 +81,9 @@ export default {
   .vcartitem__btn:hover {
     background-color: #fff;
     color: #ff6b6b;
+  }
+
+  .vcartitem__quantity_number span {
+    cursor: pointer;
   }
 </style>
