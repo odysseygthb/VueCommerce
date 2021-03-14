@@ -1,0 +1,75 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+div,
+p,
+input,
+button,
+form,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a:active,
+a:focus,
+a:visited,
+a:hover {
+  outline: none;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+* {
+  user-select: none;
+}
+
+/* Predefined */
+
+.primary__btn {
+  color: #fff;
+  padding: 10px 30px;
+  background-color: #eabbaf;
+  border-radius: 32px;
+  transition: color .3s linear,
+  background-color .3s linear;
+  box-shadow: 0 3px 6px rgba(0,0,0,.16);
+}
+
+.primary__btn:hover {
+  color: #eabbaf;
+  background-color: #fff;
+}
+
+@keyframes itemAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(0, 50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+/* Predefined | end */
+
