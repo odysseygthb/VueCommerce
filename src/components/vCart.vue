@@ -90,15 +90,30 @@
   }
 
   .vcart__empty_image {
-    max-width: 600px;
+    max-width: 500px;
+    filter: drop-shadow(0 6px 10px rgba(0,0,0,.16));
+    opacity: .8;
+    transform: rotate(-15deg);
+    animation: emptyImageAnimation 2s ease;
   }
 
   .vcart__empty_link {
     margin: 20px 0;
+    animation: opacityAnimation 1.5s ease;
   }
 
   .vcart__total{
     display: flex;
     justify-content: center;
   }
+
+  @keyframes emptyImageAnimation {
+    0% {
+      transform: rotate3d(2, -1, -1, -0.2turn) rotate(0) scale(.7);
+    }
+    100% {
+      transform: rotate3d(0) rotate(-15deg) scale(1);
+    }
+  }
+
 </style>
