@@ -47,6 +47,22 @@
       "article": "T6",
       "available": true,
       "category": "Женские"
+    },
+    {
+      "image": "7.jpg",
+      "name": "T-shirt 7",
+      "price": 1200.4124123,
+      "article": "T7",
+      "available": true,
+      "category": "Женские"
+    },
+    {
+      "image": "8.jpg",
+      "name": "T-shirt 8",
+      "price": 9620.4124123,
+      "article": "T8",
+      "available": true,
+      "category": "Женские"
     }
   ]
 }

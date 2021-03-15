@@ -10,7 +10,7 @@
       <p class="vcartitem__quantity_number">
         Quantity:
         <span @click="decrementItem">-</span>
-        {{ cartItemData.quantity }}
+        {{ Math.abs(cartItemData.quantity) }}
         <span @click="incrementItem">+</span>
       </p>
     </div>
@@ -43,8 +43,10 @@
         this.$emit('increment')
       }
     },
-    computed: {
-
+    mounted() {
+      if (!this.cartItemData.quantity) {
+        this.$set(this.cartItemData, 'quantity', 1)
+      }
     }
   }
 </script>

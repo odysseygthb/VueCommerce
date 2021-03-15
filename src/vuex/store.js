@@ -52,9 +52,9 @@ let store = new Vuex.Store({
         if (!isProductExists) {
           state.cart.push(product);
         }
-      } else {
-        state.cart.push(product);
-      }
+        } else {
+          state.cart.push(product);
+        }
     },
     REMOVE_FROM_CART(state, index) {
       state.cart.splice(index, 1);

@@ -35,7 +35,9 @@ export default {
     }
   },
   mounted() {
-    this.$set(this.product_data, 'quantity', 1)
+    if (!this.product_data.quantity) {
+      this.$set(this.product_data, 'quantity', 1)
+    }
   }
 }
 </script>
