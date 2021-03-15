@@ -52,45 +52,66 @@
 </script>
 
 <style scoped>
-  .vcartitem {
-    width: 90%;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px auto;
-    padding: 50px;
-    box-shadow: 0 3px 6px rgba(0,0,0,.16);
+
+  @media screen and (min-width: 10px) {
+    .vcartitem {
+      width: 90%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 50px auto;
+      padding: 50px;
+      box-shadow: 0 3px 6px rgba(0,0,0,.16);
+    }
+
+    .vcartitem > * {
+      margin: 35px 0;
+    }
+
+    .vcartitem__image {
+      width: 100%;
+      max-width: 300px;
+      box-shadow: 0 6px 15px rgba(0,0,0,.16);
+      transition: transform .5s ease;
+    }
+
+    .vcartitem__image:hover {
+      transform: rotate3d(2,0,1,10deg);
+    }
+
+    #vcartitem .vcartitem__title {
+      margin-top: 0;
+    }
+
+    .vcartitem__info > * {
+      margin-top: 20px;
+    }
+
+    .vcartitem__btn {
+      background-color: #ff6b6b;
+    }
+
+    .vcartitem__btn:hover {
+      background-color: #fff;
+      color: #ff6b6b;
+    }
+
+    .vcartitem__quantity_number span {
+      cursor: pointer;
+    }
   }
 
-  .vcartitem__image {
-    max-width: 300px;
-    box-shadow: 0 6px 15px rgba(0,0,0,.16);
-    transition: transform .5s ease;
+  @media screen and (min-width: 1023px) {
+    .vcartitem {
+      flex-direction: row;
+    }
+
+    .vcartitem > * {
+      margin: 0;
+    }
   }
 
-  .vcartitem__image:hover {
-    transform: rotate3d(2,0,1,10deg);
-  }
 
-  #vcartitem .vcartitem__title {
-    margin-top: 0;
-  }
-
-  .vcartitem__info > * {
-    margin-top: 20px;
-  }
-
-  .vcartitem__btn {
-    background-color: #ff6b6b;
-  }
-
-  .vcartitem__btn:hover {
-    background-color: #fff;
-    color: #ff6b6b;
-  }
-
-  .vcartitem__quantity_number span {
-    cursor: pointer;
-  }
 </style>

@@ -106,17 +106,44 @@
     animation: opacityAnimation 1s ease;
   }
 
-  .vcart__total{
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-    padding: 30px 60px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
-    background-color: #eabbaf;
-    color: #fff;
-    animation: itemAnimation 1.5s ease;
+  @media screen and (min-width: 10px){
+    .vcart__empty_image {
+      max-width: 250px;
+      margin-top: 35px;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,.16));
+      opacity: .8;
+      transform: rotate(-15deg);
+      animation: emptyImageAnimation 2s ease;
+    }
+
+    .vcart__total {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      padding: 30px 60px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+      background-color: #eabbaf;
+      color: #fff;
+      animation: itemAnimation 1.5s ease;
+      width: 50%;
+      margin: 35px auto 15px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 1023px){
+    .vcart__total {
+      position: fixed;
+      right: 50px;
+      bottom: 50px;
+      width: auto;
+      margin: 0;
+    }
+
+    .vcart__empty_image {
+      max-width: 500px;
+      margin-top: 0;
+    }
   }
 
   @keyframes emptyImageAnimation {

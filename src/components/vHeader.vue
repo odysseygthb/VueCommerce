@@ -26,46 +26,64 @@
 </script>
 
 <style scoped>
-  .header {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+
+  @media screen and (min-width: 10px) {
+    .header {
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .header__logo {
+      max-width: 150px;
+    }
+
+    .header__bag_wrapper {
+      position: relative;
+      margin-top: 15px;
+    }
+
+    .header__bag {
+      max-width: 40px;
+    }
+
+    .header__bag_number {
+      font-size: 12px;
+      color: #fff;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 20px;
+      width: 20px;
+      padding: 5px;
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0,0,0,.16);
+      background-color: #eabbaf;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: bagItemAnimation .75s ease;
+    }
   }
 
-  .header__logo {
-    max-width: 150px;
+  @media screen and (min-width: 1023px) {
+    .header {
+      flex-direction: row;
+    }
+
+    .header__bag_wrapper {
+      position: absolute;
+      top: 50%;
+      right: 100px;
+      transform: translate(0, -50%);
+      margin-top: 0;
+    }
   }
 
-  .header__bag_wrapper {
-    position: absolute;
-    top: 50%;
-    right: 100px;
-    transform: translate(0, -50%);
-  }
 
-  .header__bag {
-    max-width: 40px;
-  }
-
-  .header__bag_number {
-    font-size: 12px;
-    color: #fff;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 20px;
-    width: 20px;
-    padding: 5px;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0,0,0,.16);
-    background-color: #eabbaf;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: bagItemAnimation .75s ease;
-  }
 
   @keyframes bagItemAnimation {
     0% {
