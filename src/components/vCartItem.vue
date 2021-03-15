@@ -4,15 +4,15 @@
     <div class="vcartitem__info">
       <h4 class="vcartitem__title">{{ cartItemData.name }}</h4>
       <p class="vcartitem__price">{{ cartItemData.price.toFixed(0) }}$</p>
-      <p class="vcartitem__article">{{ cartItemData.article }}</p>
-      <div class="vcartitem__quantity">
-        <p class="vcartitem__quantity_number">
-          Quantity:
-          <span @click="decrementItem">-</span>
-          {{ cartItemData.quantity }}
-          <span @click="incrementItem">+</span>
-        </p>
-      </div>
+      <p class="vcartitem__article">Article: {{ cartItemData.article }}</p>
+    </div>
+    <div class="vcartitem__quantity">
+      <p class="vcartitem__quantity_number">
+        Quantity:
+        <span @click="decrementItem">-</span>
+        {{ cartItemData.quantity }}
+        <span @click="incrementItem">+</span>
+      </p>
     </div>
     <a href="#"
        class="vcartitem__btn primary__btn"
@@ -58,12 +58,17 @@
     align-items: center;
     margin: 50px auto;
     padding: 50px;
-    border: #7e6969 3px solid;
+    box-shadow: 0 3px 6px rgba(0,0,0,.16);
   }
 
   .vcartitem__image {
-    margin-right: 50px;
     max-width: 300px;
+    box-shadow: 0 6px 15px rgba(0,0,0,.16);
+    transition: transform .5s ease;
+  }
+
+  .vcartitem__image:hover {
+    transform: rotate3d(2,0,1,10deg);
   }
 
   #vcartitem .vcartitem__title {

@@ -102,9 +102,21 @@
     animation: opacityAnimation 1.5s ease;
   }
 
+  .vcart {
+    animation: opacityAnimation 1s ease;
+  }
+
   .vcart__total{
     display: flex;
     justify-content: center;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    padding: 30px 60px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    background-color: #eabbaf;
+    color: #fff;
+    animation: itemAnimation 1.5s ease;
   }
 
   @keyframes emptyImageAnimation {
