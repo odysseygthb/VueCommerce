@@ -151,7 +151,7 @@
       transform: rotate3d(2, -1, -1, -0.2turn) rotate(0) scale(.7);
     }
     100% {
-      transform: rotate3d(0) rotate(-15deg) scale(1);
+      transform: rotate3d(0, 0, 0, 0) rotate(-15deg) scale(1);
     }
   }
 
